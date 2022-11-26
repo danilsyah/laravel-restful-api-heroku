@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+// import controller
+use App\Http\Controllers\FootballerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/footballers', [FootballerController::class, 'index'])->name('index.footballers');
+Route::get('/footballers/{id}', [FootballerController::class, 'show'])->name('show.footballer');
